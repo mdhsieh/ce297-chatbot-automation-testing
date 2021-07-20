@@ -77,12 +77,38 @@ public class SubjectTest {
                 "Do you like California sweet oranges?",
                 "Have you eaten California sweet oranges?",
                 // movie
-                "Any recent movies you watched?",
+                "Are there any recent movies you watched?",
+                "What is your favorite movie genre?",
                 "What is your favorite movie?",
+                // The Walk
+                "Have you watched the movie \"The Walk\"?",
+                "Do you like the movie \"The Walk\"?",
+                "Tell me about the movie \"The Walk\".",
                 // Ex Machina
                 "Have you watched the movie \"Ex Machina\"?",
                 "Do you like the movie \"Ex Machina\"?",
                 "Tell me about the movie \"Ex Machina\".",
+                // Limitess
+                "Have you watched the movie \"Limitless\"?",
+                "Do you like the movie \"Limitless\"?",
+                "Tell me about the movie \"Limitless\".",
+                // music
+                "What is your favorite music?",
+                "What is your favorite music genre?",
+                "Who is your favorite music artist?",
+                "What is your favorite song?",
+                // Requiem by Mozart
+                "Have you listened to the song \"Requiem\" by Mozart?",
+                "Why do you like the song \"Requiem\" by Mozart?",
+                "Tell me about the song \"Requiem\" by Mozart.",
+                // Imagine by John Lennon
+                "Have you listened to the song \"Imagine\" by John Lennon?",
+                "Why do you like the song \"Imagine\" by John Lennon?",
+                "Tell me about the song \"Imagine\" by John Lennon.",
+                // Personal
+                "How's your day?",
+                "What do you do?",
+                "Where do you work?",
         };
 
         // Find opened Andy app window and click to access chat input box

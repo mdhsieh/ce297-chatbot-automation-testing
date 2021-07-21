@@ -1,12 +1,18 @@
 package com.michaelhsieh.seleniumdemo;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
@@ -14,6 +20,7 @@ import io.appium.java_client.android.AndroidDriver;
 public class SubjectTest {
 
     private AndroidDriver driver;
+    private static final String FOLDER_PATH = "output/subject/";
 
     /**
      * Appium configurations to connect to emulator
@@ -39,7 +46,7 @@ public class SubjectTest {
      *
      */
     @Test
-    public void subjectTest() {
+    public void subjectTest() throws IOException {
         // Questions about subjects user asks chat bot
         String[] inputs = {
                 // american food
@@ -125,6 +132,18 @@ public class SubjectTest {
             el2.sendKeys(inputs[i]);
             el3 = (MobileElement) driver.findElementByXPath("//android.view.ViewGroup[@content-desc=\"send\"]/android.widget.TextView");
             el3.click();
+
+            // wait 3 seconds to get chat bot reply before taking screenshot
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            // takes screenshot
+            System.out.println("Taking a screenshot!");
+            File scrFile1 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(scrFile1, new File(FOLDER_PATH + "1." + i + ".jpg"));
+            System.out.println("Screenshot taken and saved to folder.");
         }
     }
 

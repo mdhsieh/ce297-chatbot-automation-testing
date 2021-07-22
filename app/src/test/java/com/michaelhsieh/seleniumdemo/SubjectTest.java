@@ -12,7 +12,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.concurrent.TimeUnit;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
@@ -87,10 +86,6 @@ public class SubjectTest {
                 "Any recent movies",
                 "What is your favorite movie genre?",
                 "What is your favorite movie?",
-                // The Walk
-                "Have you watched the movie \"The Walk\"?",
-                "Do you like the movie \"The Walk\"?",
-                "Tell me about the movie \"The Walk\".",
                 // Ex Machina
                 "Have you watched the movie \"Ex Machina\"?",
                 "Do you like the movie \"Ex Machina\"?",
@@ -99,6 +94,10 @@ public class SubjectTest {
                 "Have you watched the movie \"Limitless\"?",
                 "Do you like the movie \"Limitless\"?",
                 "Tell me about the movie \"Limitless\".",
+                // The Walk
+                "Have you watched the movie \"The Walk\"?",
+                "Do you like the movie \"The Walk\"?",
+                "Tell me about the movie \"The Walk\".",
                 // music
                 "What is your favorite music?",
                 "What is your favorite music genre?",

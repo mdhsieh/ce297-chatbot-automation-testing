@@ -84,7 +84,7 @@ public class SubjectTest {
                 "Do you like California sweet oranges?",
                 "Have you eaten California sweet oranges?",
                 // movie
-                "Are there any recent movies you watched?",
+                "Any recent movies",
                 "What is your favorite movie genre?",
                 "What is your favorite movie?",
                 // The Walk
@@ -133,16 +133,16 @@ public class SubjectTest {
             el3 = (MobileElement) driver.findElementByXPath("//android.view.ViewGroup[@content-desc=\"send\"]/android.widget.TextView");
             el3.click();
 
-            // wait 3 seconds to get chat bot reply before taking screenshot
+            // wait a few seconds to get chat bot reply before taking screenshot
             try {
-                Thread.sleep(3000);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             // takes screenshot
             System.out.println("Taking a screenshot!");
             File scrFile1 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(scrFile1, new File(FOLDER_PATH + "1." + i + ".jpg"));
+            FileUtils.copyFile(scrFile1, new File(FOLDER_PATH + "1." + (i+1) + ".jpg"));
             System.out.println("Screenshot taken and saved to folder.");
         }
     }

@@ -83,7 +83,7 @@ public class SubjectTest {
                 "Do you like California sweet oranges?",
                 "Have you eaten California sweet oranges?",
                 // movie
-                "Any recent movies",
+                "Any recent movies?",
                 "What is your favorite movie genre?",
                 "What is your favorite movie?",
                 // Ex Machina

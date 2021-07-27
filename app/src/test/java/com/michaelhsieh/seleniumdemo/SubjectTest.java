@@ -146,6 +146,115 @@ public class SubjectTest {
         }
     }
 
+    /**
+     * Assumes Appium server is running,
+     * emulator is running, and
+     * English with Andy app is open on emulator.
+     *
+     * Execute subject pizza test cases only.
+     * Used to demonstrate a subject scenario.
+     *
+     */
+    @Test
+    public void pizzaScenarioTest() throws IOException {
+        // save screenshots in subject subfolder
+        final String SCENARIO_PATH = "pizza-scenario/";
+
+        // Questions about pizza
+        String[] inputs = {
+                // american food
+                "What is your favorite American lunch food?",
+                // pizza
+                "What is pizza?",
+                "What kinds of pizza have you eaten?",
+                "Do you like New York pepperoni pizza?",
+                "Have you eaten New York pepperoni pizza?",
+        };
+
+        // Find opened Andy app window and click to access chat input box
+        MobileElement el1 = (MobileElement) driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ScrollView");
+        el1.click();
+
+        MobileElement el2;
+        MobileElement el3;
+        // focus on chat input box. type questions about subject
+        // then click send button
+        for (int i = 0; i < inputs.length; i++) {
+            el2 = (MobileElement) driver.findElementByAccessibilityId("Type a message...");
+            el2.click();
+            el2.sendKeys(inputs[i]);
+            el3 = (MobileElement) driver.findElementByXPath("//android.view.ViewGroup[@content-desc=\"send\"]/android.widget.TextView");
+            el3.click();
+
+            // wait a few seconds to get chat bot reply before taking screenshot
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            // takes screenshot
+            System.out.println("Taking a screenshot!");
+            File scrFile1 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+            String filePath = FOLDER_PATH + SCENARIO_PATH + "1." + (i+1) + ".jpg";
+            FileUtils.copyFile(scrFile1, new File(filePath));
+            System.out.println("Screenshot taken and saved to folder: " + filePath);
+        }
+    }
+
+    /**
+     * Assumes Appium server is running,
+     * emulator is running, and
+     * English with Andy app is open on emulator.
+     *
+     * Execute subject science fiction movie "Ex Machina" test cases only.
+     * Used to demonstrate a subject scenario.
+     *
+     */
+    @Test
+    public void movieScenarioTest() throws IOException {
+        // save screenshots in subject subfolder
+        final String SCENARIO_PATH = "ex-machina-scenario/";
+
+        // Questions about movie "Ex Machina"
+        String[] inputs = {
+                "What is your favorite movie genre?",
+                "What is your favorite movie?",
+                // Ex Machina
+                "Have you watched the movie \"Ex Machina\"?",
+                "Do you like the movie \"Ex Machina\"?",
+                "Tell me about the movie \"Ex Machina\".",
+        };
+
+        // Find opened Andy app window and click to access chat input box
+        MobileElement el1 = (MobileElement) driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ScrollView");
+        el1.click();
+
+        MobileElement el2;
+        MobileElement el3;
+        // focus on chat input box. type questions about subject
+        // then click send button
+        for (int i = 0; i < inputs.length; i++) {
+            el2 = (MobileElement) driver.findElementByAccessibilityId("Type a message...");
+            el2.click();
+            el2.sendKeys(inputs[i]);
+            el3 = (MobileElement) driver.findElementByXPath("//android.view.ViewGroup[@content-desc=\"send\"]/android.widget.TextView");
+            el3.click();
+
+            // wait a few seconds to get chat bot reply before taking screenshot
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            // takes screenshot
+            System.out.println("Taking a screenshot!");
+            File scrFile1 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+            String filePath = FOLDER_PATH + SCENARIO_PATH + "1." + (i+1) + ".jpg";
+            FileUtils.copyFile(scrFile1, new File(filePath));
+            System.out.println("Screenshot taken and saved to folder: " + filePath);
+        }
+    }
+
     @After
     public void tearDown() {
         driver.quit();
